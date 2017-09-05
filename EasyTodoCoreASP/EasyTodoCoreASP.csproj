@@ -2,15 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
-    <PackageTargetFallback>portable-net45+win8</PackageTargetFallback>
-    <AssemblyName>EasyTodoCoreWeb</AssemblyName>
-    <StartupObject>EasyTodoCoreWeb.Program</StartupObject>
+    <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\" />
-    <Folder Include="wwwroot\images\" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Devart.Data.PostgreSql" Version="7.9.958" />
@@ -32,10 +25,6 @@
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\EasyTodoCoreConnectionClass\EasyTodoCoreConnectionClass.csproj" />
   </ItemGroup>
 
   <ItemGroup>

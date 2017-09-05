@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyTodoCoreWeb", "EasyTodoCoreWeb\EasyTodoCoreWeb.csproj", "{5F464D7E-985F-457C-A1FD-26DDB593CFFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyTodoCoreConnectionClass", "EasyTodoCoreConnectionClass\EasyTodoCoreConnectionClass.csproj", "{DF956F94-7ED2-4AF6-B5E2-4383BE521345}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyTodoCoreConnectionClass", "EasyTodoCoreConnectionClass\EasyTodoCoreConnectionClass.csproj", "{DF956F94-7ED2-4AF6-B5E2-4383BE521345}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyTodoCoreASP", "EasyTodoCoreASP\EasyTodoCoreASP.csproj", "{8F419214-C515-4B72-BF2C-C97C32CC0445}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{DF956F94-7ED2-4AF6-B5E2-4383BE521345}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF956F94-7ED2-4AF6-B5E2-4383BE521345}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF956F94-7ED2-4AF6-B5E2-4383BE521345}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F419214-C515-4B72-BF2C-C97C32CC0445}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F419214-C515-4B72-BF2C-C97C32CC0445}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F419214-C515-4B72-BF2C-C97C32CC0445}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F419214-C515-4B72-BF2C-C97C32CC0445}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

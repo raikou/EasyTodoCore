@@ -6,12 +6,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CoreContext;
-using EasyTodoCoreWeb;
+using EasyTodoCoreASP;
 
-namespace EasyTodoCoreWeb.Controllers
+namespace EasyTodoCoreASP.Controllers
 {
-
-	[Route("api/[controller]")]
+    [Produces("application/json")]
+    [Route("api/TodoDetailDatas")]
     public class TodoDetailDatasController : Controller
     {
         private readonly testModel _context;
@@ -29,15 +29,15 @@ namespace EasyTodoCoreWeb.Controllers
         }
 
         // GET: api/TodoDetailDatas/5
-        [HttpGet("{UserId}/{DataId}")]
-        public async Task<IActionResult> GetTodoDetailData([FromRoute] int UserId, [FromRoute] int DataId)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetTodoDetailData([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var todoDetailData = await _context.TodoDetailDatas.SingleOrDefaultAsync(m => m.UserId == UserId && m.DataId == DataId);
+            var todoDetailData = await _context.TodoDetailDatas.SingleOrDefaultAsync(m => m.UserId == id);
 
             if (todoDetailData == null)
             {
@@ -48,25 +48,20 @@ namespace EasyTodoCoreWeb.Controllers
         }
 
         // PUT: api/TodoDetailDatas/5
-        [HttpPut("{UserId}/{DataId}")]
-        public async Task<IActionResult> PutTodoDetailData([FromRoute] int UserId, [FromRoute] int DataId, [FromBody] TodoDetailData todoDetailData)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutTodoDetailData([FromRoute] int id, [FromBody] TodoDetailData todoDetailData)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (UserId != todoDetailData.UserId)
+            if (id != todoDetailData.UserId)
             {
                 return BadRequest();
             }
 
-	        if (DataId != todoDetailData.DataId)
-	        {
-		        return BadRequest();
-	        }
-
-			_context.Entry(todoDetailData).State = EntityState.Modified;
+            _context.Entry(todoDetailData).State = EntityState.Modified;
 
             try
             {
@@ -74,7 +69,7 @@ namespace EasyTodoCoreWeb.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TodoDetailDataExists(UserId, DataId))
+                if (!TodoDetailDataExists(id))
                 {
                     return NotFound();
                 }
@@ -103,7 +98,7 @@ namespace EasyTodoCoreWeb.Controllers
             }
             catch (DbUpdateException)
             {
-                if (TodoDetailDataExists(todoDetailData.UserId, todoDetailData.DataId))
+                if (TodoDetailDataExists(todoDetailData.UserId))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -113,20 +108,20 @@ namespace EasyTodoCoreWeb.Controllers
                 }
             }
 
-            return CreatedAtAction("GetTodoDetailData", new { UserId = todoDetailData.UserId , DataId = todoDetailData.DataId}, todoDetailData);
+            return CreatedAtAction("GetTodoDetailData", new { id = todoDetailData.UserId }, todoDetailData);
         }
 
         // DELETE: api/TodoDetailDatas/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTodoDetailData([FromRoute] int UserId, [FromRoute] int DataId)
+        public async Task<IActionResult> DeleteTodoDetailData([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var todoDetailData = await _context.TodoDetailDatas.SingleOrDefaultAsync(m => m.UserId == UserId && m.DataId == DataId);
-			if (todoDetailData == null)
+            var todoDetailData = await _context.TodoDetailDatas.SingleOrDefaultAsync(m => m.UserId == id);
+            if (todoDetailData == null)
             {
                 return NotFound();
             }
@@ -137,9 +132,9 @@ namespace EasyTodoCoreWeb.Controllers
             return Ok(todoDetailData);
         }
 
-        private bool TodoDetailDataExists(int UserId, int DataId)
+        private bool TodoDetailDataExists(int id)
         {
-            return _context.TodoDetailDatas.Any(e => e.UserId == UserId && e.DataId == DataId);
+            return _context.TodoDetailDatas.Any(e => e.UserId == id);
         }
     }
 }
