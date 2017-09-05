@@ -13,7 +13,7 @@ namespace EasyTodoCoreWeb.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-	        var context = new CoreContext.CoreDataContext();
+	        var context = new CoreContext.testModel();
 
 	        var data = from x in context.TodoDetailDatas
 		        where x.DataId == 0

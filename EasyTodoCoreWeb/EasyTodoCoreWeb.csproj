@@ -13,6 +13,8 @@
 
   <ItemGroup>
     <PackageReference Include="Devart.Data.PostgreSql" Version="7.9.958" />
+    <PackageReference Include="Devart.Data.PostgreSql.EFCore" Version="7.9.946" />
+    <PackageReference Include="Devart.Data.PostgreSql.EFCore.Design" Version="7.9.946" />
     <PackageReference Include="Devart.Data.PostgreSql.Linq" Version="4.7.1295" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
@@ -36,17 +38,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Models\Context\DataContext.Designer.cs">
+    <None Update="Models\Context\DataModel.efml">
+      <Generator>DevartEFCoreGenerator</Generator>
+      <LastGenOutput>DataModel.info</LastGenOutput>
+    </None>
+    <None Update="Models\Context\DataModel.info">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>DataContext.lqml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Models\Context\DataContext.lqml">
-      <Generator>DevartLinqToSqlGenerator</Generator>
-      <LastGenOutput>DataContext.Designer.cs</LastGenOutput>
+      <DependentUpon>DataModel.efml</DependentUpon>
     </None>
   </ItemGroup>
 
