@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Database Name="test" EntityNamespace="CoreContext" ContextNamespace="CoreContext" Class="CoreDataContext" xmlns:ed="http://devart.com/schemas/EntityDeveloper/1.0" ed:Guid="541e2ebb-13b4-4402-9d14-20908b2ada9f" Provider="Devart.Data.PostgreSql.Linq.Provider.PgSqlDataProvider, Devart.Data.PostgreSql.Linq" Extended="true" xmlns="http://schemas.devart.com/linqconnect/mapping">
-  <Connection Mode="ConnectionString" ConnectionString="User Id=ruser;Host=192.168.52.128;Database=test" Provider="Devart.Data.PostgreSql" />
+<Database Name="test" EntityNamespace="CoreContext" ContextNamespace="CoreContext" Class="CoreDataContext" xmlns:ed="http://devart.com/schemas/EntityDeveloper/1.0" ed:Guid="fa55ca7b-114a-4b56-8f91-15f4c8177155" Provider="Devart.Data.PostgreSql.Linq.Provider.PgSqlDataProvider, Devart.Data.PostgreSql.Linq" Extended="true" xmlns="http://schemas.devart.com/linqconnect/mapping">
+  <Connection Mode="ConnectionString" ConnectionString="User Id=ruser;Password=rpass;Host=192.168.52.128;Database=test;Persist Security Info=True" Provider="Devart.Data.PostgreSql" />
   <Table Name="public.todo_detail_data" Member="TodoDetailDatas">
-    <Type Name="TodoDetailData" ed:Guid="403ef595-c10b-4163-826b-a6b1ddaaa7cd">
-      <Column Name="user_id" Member="UserId" Type="System.Int32" DbType="INT4 NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" ed:ValidateRequired="true" ed:Guid="708faee3-b302-43e6-a52a-f6080e5a5d6f" />
-      <Column Name="data_id" Member="DataId" Type="System.Int32" DbType="INT4 NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" ed:ValidateRequired="true" ed:Guid="e218b6db-71cf-4dd0-b508-476910aa7c48" />
-      <Column Name="title" Member="Title" Type="System.String" DbType="VARCHAR(100)" CanBeNull="true" UpdateCheck="Never" MaxLength="100" Unicode="true" ed:ValidateMaxLength="100" ed:ValidateRequired="false" ed:Guid="a81c32c2-6807-4fa6-9417-9aa6d7d6b22a" />
-      <Column Name="detail" Member="Detail" Type="System.String" DbType="VARCHAR(100)" CanBeNull="true" UpdateCheck="Never" MaxLength="100" Unicode="true" ed:ValidateMaxLength="100" ed:ValidateRequired="false" ed:Guid="943a0d9f-f108-40ab-9e2e-1b9983b36f24" />
-      <Column Name="start_date" Member="StartDate" Type="System.DateTime" DbType="DATE" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="ef010f13-6ba5-4126-8c83-f50e79ecb1db" />
-      <Column Name="end_date" Member="EndDate" Type="System.DateTime" DbType="DATE" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="39602178-60b2-4fb5-84e2-f3ffd1a9526d" />
-      <Column Name="&quot;state&quot;" Member="State" Type="System.Int32" DbType="INT4" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="1cf26016-05be-4725-97cf-091df2a9328f" />
-      <Column Name="color_id" Member="ColorId" Type="System.Int32" DbType="INT4" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="bd1a93c7-1169-4d18-a8e1-5a74bbeb078d" />
+    <Type Name="TodoDetailData" ed:Guid="725c2881-675c-49c7-936d-096172a18d93">
+      <Column Name="user_id" Member="UserId" Type="System.Int32" DbType="INT4 NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" ed:ValidateRequired="true" ed:Guid="32d2ed87-6d3e-4088-b486-4820e4a8afc1" />
+      <Column Name="data_id" Member="DataId" Type="System.Int32" DbType="INT4 NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" ed:ValidateRequired="true" ed:Guid="1cb8dadb-b051-42dd-8995-3f1ca1f0b329" />
+      <Column Name="title" Member="Title" Type="System.String" DbType="VARCHAR(100)" CanBeNull="true" UpdateCheck="Never" MaxLength="100" Unicode="true" ed:ValidateMaxLength="100" ed:ValidateRequired="false" ed:Guid="30b802f2-413d-45a1-a5f9-9190e5b519c8" />
+      <Column Name="detail" Member="Detail" Type="System.String" DbType="VARCHAR(100)" CanBeNull="true" UpdateCheck="Never" MaxLength="100" Unicode="true" ed:ValidateMaxLength="100" ed:ValidateRequired="false" ed:Guid="17c21ac4-3278-4223-861e-6f14aa1405fe" />
+      <Column Name="start_date" Member="StartDate" Type="System.DateTime" DbType="DATE" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="a1200fee-1e14-4b48-ae61-60df072130ea" />
+      <Column Name="end_date" Member="EndDate" Type="System.DateTime" DbType="DATE" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="e181fcce-0120-4d79-b8a2-c042d69cbcd4" />
+      <Column Name="&quot;state&quot;" Member="State" Type="System.Int32" DbType="INT4" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="d33ae23c-ec30-4c75-814c-0f8bc160fdc2" />
+      <Column Name="color_id" Member="ColorId" Type="System.Int32" DbType="INT4" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="72915da2-1aed-427b-986b-6596dc78c846" />
     </Type>
   </Table>
 </Database>
