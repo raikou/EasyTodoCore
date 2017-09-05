@@ -29,6 +29,8 @@ namespace EasyTodoCoreASP
         {
             // Add framework services.
             services.AddMvc();
+
+	        services.AddDbContext<CoreContext.testModel>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
