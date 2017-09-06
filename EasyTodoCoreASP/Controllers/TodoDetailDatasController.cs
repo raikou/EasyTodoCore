@@ -21,8 +21,10 @@ namespace EasyTodoCoreASP.Controllers
             _context = context;
         }
 
-        // GET: api/TodoDetailDatas
-        [HttpGet]
+
+
+		// GET: api/TodoDetailDatas
+		[HttpGet]
         public IEnumerable<TodoDetailData> GetTodoDetailDatas()
         {
             return _context.TodoDetailDatas;
