@@ -83,6 +83,12 @@ namespace EasyTodoCorePrism.ViewModels
 			});
 			this.AddCommand = new DelegateCommand(() =>
 			{
+				var data = new TodoDetailData()
+				{
+					UserId = 0
+					, DataId = 0
+				};
+				toDoList.Post(data, GridItem);
 				GridItem = toDoList.GetUserList().Result;
 			});
 			this.UpdCommand = new DelegateCommand(() =>

@@ -48,7 +48,7 @@ namespace EasyTodoCoreASP.Controllers
         }
 
         // PUT: api/TodoDetailDatas/5
-        [HttpPut("{UserId}")]
+        [HttpPut("{UserId}/{DataId}")]
         public async Task<IActionResult> PutTodoDetailData([FromRoute] int UserId, [FromRoute] int DataId, [FromBody] TodoDetailData todoDetailData)
         {
             if (!ModelState.IsValid)
