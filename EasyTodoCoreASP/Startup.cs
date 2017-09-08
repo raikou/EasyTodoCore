@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace EasyTodoCoreASP
 {
@@ -27,14 +31,28 @@ namespace EasyTodoCoreASP
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Add framework services.
-            services.AddMvc();
+			//   // Add framework services.
+			//   services.AddMvc();
 
-	        services.AddDbContext<CoreContext.testModel>();
-        }
+			//services.AddDbContext<CoreContext.testModel>();
+			var serializerSettings = new JsonSerializerSettings
+	        {
+		        ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+	        };
+	        JsonOutputFormatter jsonOutputFormatter = new JsonOutputFormatter(serializerSettings, ArrayPool<Char>.Create());
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+	        services.AddMvc(
+		        options =>
+		        {
+			        options.OutputFormatters.Clear();
+			        options.OutputFormatters.Insert(0, jsonOutputFormatter);
+		        }
+	        );
+
+		}
+
+		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+		public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
