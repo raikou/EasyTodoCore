@@ -19,8 +19,6 @@ namespace EasyTodoCorePrism.ViewModels
 	{
 		public string HeaderText { get; } = "ToDoListCommand";
 
-
-
 		#region Model情報
 		ToDoList toDoList = new ToDoList();
 		#endregion
@@ -55,6 +53,13 @@ namespace EasyTodoCorePrism.ViewModels
 		{
 			get { return this.gridItem; }
 			set { this.SetProperty(ref this.gridItem, value); }
+		}
+
+		private TodoDetailData selectedItem = new TodoDetailData();
+		public TodoDetailData SelectedItem
+		{
+			get { return this.selectedItem; }
+			set { this.SetProperty(ref this.selectedItem, value); }
 		}
 
 		#endregion
@@ -103,15 +108,16 @@ namespace EasyTodoCorePrism.ViewModels
 			{
 				this.KeepAlive = false;
 				//TODO:情報残るようなら以下のコメントを消す
-				//// find view by region
-				//var view = RegionManager.Regions["MainRegion"]
-				//	.ActiveViews
-				//	.First(x => MvvmHelpers.GetImplementerFromViewOrViewModel<ToDoListCommandViewModel>(x) == this);
-				//// deactive view
-				//this.RegionManager.Regions["MainRegion"].Deactivate(view);
+				// find view by region
+				var view = RegionManager.Regions["MainRegion"]
+					.ActiveViews
+					.First(x => MvvmHelpers.GetImplementerFromViewOrViewModel<ToDoListControlViewModel>(x) == this);
+				// deactive view
+				this.RegionManager.Regions["MainRegion"].Deactivate(view);
 				NavigationParameters param = new NavigationParameters();
+				param.Add("SelectItem", SelectedItem);
 
-				this.RegionManager.RequestNavigate("MainRegion", (nameof(ToDoListControlViewModel)), param);
+				this.RegionManager.RequestNavigate("MainRegion", (nameof(ToDoDetailControlViewModel)), param);
 
 			});
 		}

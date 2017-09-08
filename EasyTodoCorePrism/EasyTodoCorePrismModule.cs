@@ -18,6 +18,7 @@ namespace EasyTodoCorePrism
 		{
 			this.Container.RegisterType<ToDoList>(new ContainerControlledLifetimeManager());
 			this.Container.RegisterType<object, ToDoListControlView>(nameof(ToDoListControlView));
+			this.Container.RegisterType<object, ToDoDetailControlView>(nameof(ToDoDetailControlView));
 
 			this.RegionManager.RequestNavigate("MainRegion", nameof(ToDoListControlView));
 		}
