@@ -15,7 +15,8 @@ namespace EasyTodoCoreASP
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
-                .UseStartup<Startup>()
+	            .UseUrls("http://*:80/")    // ここを追加
+				.UseStartup<Startup>()
                 .UseApplicationInsights()
                 .Build();
 
