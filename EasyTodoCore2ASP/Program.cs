@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace EasyTodoCore2ASP
+namespace EasyTodoCore2Asp
 {
     public class Program
     {

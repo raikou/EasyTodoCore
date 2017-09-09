@@ -1,6 +1,6 @@
 using System;
 
-namespace EasyTodoCore2ASP.Models
+namespace EasyTodoCore2Asp.Models
 {
     public class ErrorViewModel
     {

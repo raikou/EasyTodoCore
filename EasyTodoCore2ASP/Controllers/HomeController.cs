@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using EasyTodoCore2ASP.Models;
+using EasyTodoCore2Asp.Models;
 
-namespace EasyTodoCore2ASP.Controllers
+namespace EasyTodoCore2Asp.Controllers
 {
     public class HomeController : Controller
     {
