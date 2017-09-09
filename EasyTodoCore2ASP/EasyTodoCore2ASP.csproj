@@ -5,11 +5,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Devart.Data.PostgreSql" Version="7.9.980" />
+    <PackageReference Include="Devart.Data.PostgreSql.EFCore" Version="7.9.980" />
+    <PackageReference Include="Devart.Data.PostgreSql.EFCore.Design" Version="7.9.980" />
+    <PackageReference Include="Devart.Data.PostgreSql.Linq" Version="4.7.1317" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Models\Context\DataModel.efml">
+      <Generator>DevartEFCoreGenerator</Generator>
+      <LastGenOutput>DataModel.info</LastGenOutput>
+    </None>
+    <None Update="Models\Context\DataModel.info">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataModel.efml</DependentUpon>
+    </None>
   </ItemGroup>
 
 </Project>
