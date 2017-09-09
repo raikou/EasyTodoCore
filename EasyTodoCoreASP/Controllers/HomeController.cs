@@ -29,12 +29,6 @@ namespace EasyTodoCoreASP.Controllers
             return View();
         }
 
-	    public IActionResult TodoDetailView()
-	    {
-		    ViewData["Message"] = "Your application description page.";
-		    return View();
-	    }
-
 		public IActionResult Error()
         {
             return View();

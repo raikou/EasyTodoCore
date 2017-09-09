@@ -14,18 +14,18 @@ namespace EasyTodoCoreASP.Controllers
     [Route("api/TodoDetailDatas")]
     public class TodoDetailDatasController : Controller
     {
-        private readonly testModel _context;
+	    private readonly CoreContext.tododataModel _context;
 
-        public TodoDetailDatasController(testModel context)
+        public TodoDetailDatasController()
         {
-            _context = context;
-        }
+            _context = new CoreContext.tododataModel();
+		}
 
 		// GET: api/TodoDetailDatas
 		[HttpGet]
         public IEnumerable<TodoDetailData> GetTodoDetailDatas()
         {
-            return _context.TodoDetailDatas;
+			return _context.TodoDetailDatas;
         }
 
         // GET: api/TodoDetailDatas/5
