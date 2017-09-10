@@ -35,7 +35,7 @@
                       <Height>18 px</Height>
                     </Size>
                     <Oid xsi:type="SchemaModelOID">
-                      <Path>dc1e4463-a276-4653-813f-71b571a82007</Path>
+                      <Path>9882aaf5-9ad8-4edd-b4b6-879ed92b61a8</Path>
                       <TypeName>EntityDeveloper.EntityFrameworkCore.EntityProperty</TypeName>
                     </Oid>
                   </Model>
@@ -54,7 +54,7 @@
                       <Height>18 px</Height>
                     </Size>
                     <Oid xsi:type="SchemaModelOID">
-                      <Path>1c8db3c3-e65e-4aa5-bad0-bfd085d3fddb</Path>
+                      <Path>9019394e-eee8-4ed7-b209-0febd70d6554</Path>
                       <TypeName>EntityDeveloper.EntityFrameworkCore.EntityProperty</TypeName>
                     </Oid>
                   </Model>
@@ -73,7 +73,7 @@
                       <Height>18 px</Height>
                     </Size>
                     <Oid xsi:type="SchemaModelOID">
-                      <Path>501c6bf7-c471-4f4a-9b62-efbf528af1bf</Path>
+                      <Path>3c5b392c-d845-4a08-8bd3-2172e3cc7c99</Path>
                       <TypeName>EntityDeveloper.EntityFrameworkCore.EntityProperty</TypeName>
                     </Oid>
                   </Model>
@@ -92,7 +92,7 @@
                       <Height>18 px</Height>
                     </Size>
                     <Oid xsi:type="SchemaModelOID">
-                      <Path>75484307-12d1-47d4-ac82-b3029dd775ac</Path>
+                      <Path>eb336cb5-a0d9-4d6f-8b41-ed6a1c45a426</Path>
                       <TypeName>EntityDeveloper.EntityFrameworkCore.EntityProperty</TypeName>
                     </Oid>
                   </Model>
@@ -111,7 +111,7 @@
                       <Height>18 px</Height>
                     </Size>
                     <Oid xsi:type="SchemaModelOID">
-                      <Path>b9561c0c-b52c-43e7-87bb-f84dce294352</Path>
+                      <Path>588afe3e-d9ec-41d7-b588-b179f5cba486</Path>
                       <TypeName>EntityDeveloper.EntityFrameworkCore.EntityProperty</TypeName>
                     </Oid>
                   </Model>
@@ -130,7 +130,7 @@
                       <Height>18 px</Height>
                     </Size>
                     <Oid xsi:type="SchemaModelOID">
-                      <Path>3b1ed990-e4af-46d5-8ba1-98f683e78249</Path>
+                      <Path>5be009fc-3bdc-448a-91af-ae692380434b</Path>
                       <TypeName>EntityDeveloper.EntityFrameworkCore.EntityProperty</TypeName>
                     </Oid>
                   </Model>
@@ -149,7 +149,7 @@
                       <Height>18 px</Height>
                     </Size>
                     <Oid xsi:type="SchemaModelOID">
-                      <Path>527b3434-97db-45d1-a1d8-7f25a80b16a2</Path>
+                      <Path>b2a7efcb-c714-4fd3-8534-c9cc3679a57e</Path>
                       <TypeName>EntityDeveloper.EntityFrameworkCore.EntityProperty</TypeName>
                     </Oid>
                   </Model>
@@ -168,7 +168,7 @@
                       <Height>18 px</Height>
                     </Size>
                     <Oid xsi:type="SchemaModelOID">
-                      <Path>c5a344b5-446d-4975-bdb9-a307ffaa7ad1</Path>
+                      <Path>517ee4cc-4334-4e5b-b856-46dcee1bf36b</Path>
                       <TypeName>EntityDeveloper.EntityFrameworkCore.EntityProperty</TypeName>
                     </Oid>
                   </Model>
@@ -217,7 +217,7 @@
             </MaxSize>
             <Ports />
             <Oid xsi:type="SchemaModelOID">
-              <Path>a1fd17b3-daa9-4017-8474-3999fa760980</Path>
+              <Path>139f3064-56cb-4a15-b2bd-9a23fd250342</Path>
               <TypeName>EntityDeveloper.EntityFrameworkCore.EntityClass</TypeName>
             </Oid>
             <FixedHeight>35 px</FixedHeight>
@@ -233,7 +233,7 @@
           </Location>
         </ViewPort>
         <Oid xsi:type="SchemaModelOID">
-          <Path>4159c58c-eb7d-4249-8baf-1c28b3acdca2</Path>
+          <Path>4bc1de21-e6ab-4263-82c6-3833b8dd58a3</Path>
           <TypeName>EntityDeveloper.EntityFrameworkCore.EntityContextModel</TypeName>
         </Oid>
       </Model>

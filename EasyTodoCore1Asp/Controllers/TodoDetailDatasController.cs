@@ -6,39 +6,37 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CoreContext;
+using EasyTodoCore1Asp;
 
 namespace EasyTodoCore1Asp.Controllers
 {
-	[Produces("application/json")]
+    [Produces("application/json")]
     [Route("api/TodoDetailDatas")]
     public class TodoDetailDatasController : Controller
     {
-	    private readonly CoreContext.todo_dataModel _context;
+        private readonly todo_dataModel _context = new todo_dataModel();
 
         public TodoDetailDatasController()
         {
-            _context = new CoreContext.todo_dataModel();
-		}
+        }
 
-		// GET: api/TodoDetailDatas
-		[HttpGet]
+        // GET: api/TodoDetailDatas
+        [HttpGet]
         public IEnumerable<TodoDetailData> GetTodoDetailDatas()
-		{
-			var data = _context.TodoDetailDatas.Where(x => x.UserId == 0);
-
-			return _context.TodoDetailDatas;
+        {
+            return _context.TodoDetailDatas;
         }
 
         // GET: api/TodoDetailDatas/5
-        [HttpGet("{UserId}/{DataId}")]
-        public async Task<IActionResult> GetTodoDetailData([FromRoute] int UserId, [FromRoute] int DataId)
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetTodoDetailData([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var todoDetailData = await _context.TodoDetailDatas.SingleOrDefaultAsync(m => m.UserId == UserId && m.DataId == DataId);
+            var todoDetailData = await _context.TodoDetailDatas.SingleOrDefaultAsync(m => m.UserId == id);
 
             if (todoDetailData == null)
             {
@@ -49,15 +47,15 @@ namespace EasyTodoCore1Asp.Controllers
         }
 
         // PUT: api/TodoDetailDatas/5
-        [HttpPut("{UserId}/{DataId}")]
-        public async Task<IActionResult> PutTodoDetailData([FromRoute] int UserId, [FromRoute] int DataId, [FromBody] TodoDetailData todoDetailData)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutTodoDetailData([FromRoute] int id, [FromBody] TodoDetailData todoDetailData)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (UserId != todoDetailData.UserId)
+            if (id != todoDetailData.UserId)
             {
                 return BadRequest();
             }
@@ -70,7 +68,7 @@ namespace EasyTodoCore1Asp.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TodoDetailDataExists(UserId, DataId))
+                if (!TodoDetailDataExists(id))
                 {
                     return NotFound();
                 }
@@ -99,7 +97,7 @@ namespace EasyTodoCore1Asp.Controllers
             }
             catch (DbUpdateException)
             {
-                if (TodoDetailDataExists(todoDetailData.UserId, todoDetailData.DataId))
+                if (TodoDetailDataExists(todoDetailData.UserId))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -109,19 +107,19 @@ namespace EasyTodoCore1Asp.Controllers
                 }
             }
 
-            return CreatedAtAction("GetTodoDetailData", new { UserId = todoDetailData.UserId, DataId = todoDetailData.DataId }, todoDetailData);
+            return CreatedAtAction("GetTodoDetailData", new { id = todoDetailData.UserId }, todoDetailData);
         }
 
         // DELETE: api/TodoDetailDatas/5
-        [HttpDelete("{UserId}")]
-        public async Task<IActionResult> DeleteTodoDetailData([FromRoute] int UserId, [FromRoute] int DataId)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteTodoDetailData([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var todoDetailData = await _context.TodoDetailDatas.SingleOrDefaultAsync(m => m.UserId == UserId && m.DataId == DataId);
+            var todoDetailData = await _context.TodoDetailDatas.SingleOrDefaultAsync(m => m.UserId == id);
             if (todoDetailData == null)
             {
                 return NotFound();
@@ -133,9 +131,9 @@ namespace EasyTodoCore1Asp.Controllers
             return Ok(todoDetailData);
         }
 
-        private bool TodoDetailDataExists(int UserId, int DataId)
+        private bool TodoDetailDataExists(int id)
         {
-            return _context.TodoDetailDatas.Any(e => e.UserId == UserId && e.DataId == DataId);
+            return _context.TodoDetailDatas.Any(e => e.UserId == id);
         }
     }
 }
