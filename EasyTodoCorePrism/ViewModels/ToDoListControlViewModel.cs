@@ -85,7 +85,8 @@ namespace EasyTodoCorePrism.ViewModels
 			//コマンド生成
 			this.GetMainListCommand = new DelegateCommand(() =>
 			{
-				GridItem = toDoList.GetUserList().Result;
+				GridItem = toDoList.GetById(0).Result;
+
 			});
 			this.AddCommand = new DelegateCommand(() =>
 			{
@@ -94,8 +95,10 @@ namespace EasyTodoCorePrism.ViewModels
 					UserId = 0
 					, DataId = 0
 				};
-				toDoList.Post(data, GridItem);
-				GridItem = toDoList.GetUserList().Result;
+				
+				 var result = toDoList.Post(data, GridItem).Result;
+
+				GridItem = toDoList.GetById(data.UserId).Result;
 			});
 			this.UpdCommand = new DelegateCommand(() =>
 			{

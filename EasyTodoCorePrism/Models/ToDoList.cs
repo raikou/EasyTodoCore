@@ -16,7 +16,7 @@ namespace EasyTodoCorePrism.Models
 		{
 			var hc = new HttpClient();
 			hc.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-			var res = await hc.GetAsync(common.GetURL() + "TodoDetailDatas").ConfigureAwait(false);
+			var res = await hc.GetAsync(common.GetURL() + "TodoDetailDatas/").ConfigureAwait(false);
 			var str = await res.Content.ReadAsStringAsync();
 			//testMess.Text = str;
 
@@ -26,19 +26,17 @@ namespace EasyTodoCorePrism.Models
 			return items.ToList();
 		}
 
-		public async Task<TodoDetailData> GetById(int id)
+		public async Task<List<TodoDetailData>> GetById(int userId)
 		{
 			var hc = new HttpClient();
 			hc.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-			//var res = await hc.GetAsync(common.GetURL() + "people/" + userid).ConfigureAwait(false); ;
-			var res = await hc.GetAsync(common.GetURL() + "TodoDetailDatas/" + id).ConfigureAwait(false); ;
+			var res = await hc.GetAsync(common.GetURL() + "TodoDetailDatas/" + userId).ConfigureAwait(false); ;
 
 			var str = await res.Content.ReadAsStringAsync();
-			//testMess.Text = str;
 
 			var js = new Newtonsoft.Json.JsonSerializer();
 			var jr = new Newtonsoft.Json.JsonTextReader(new System.IO.StringReader(str));
-			var item = js.Deserialize<TodoDetailData>(jr);
+			var item = js.Deserialize<List<TodoDetailData>>(jr);
 			return item;
 		}
 

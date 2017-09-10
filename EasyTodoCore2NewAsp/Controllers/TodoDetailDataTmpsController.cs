@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using EasyTodoCore2NewAsp.Models;
 using EasyTodoCoreConnectionClass;
 using Microsoft.AspNetCore.Mvc;
@@ -11,39 +12,39 @@ namespace EasyTodoCore2NewAsp.Controllers
 	[Route("api/TodoDetailDatas")]
 	public class TodoDetailDataTmpsController : Controller
 	{
+		private PgContext _context = new PgContext();
+
 		public TodoDetailDataTmpsController()
 		{
 		}
 
-		// GET: api/TodoDetailDatas
-		[HttpGet]
-		public IEnumerable<TodoDetailData> GetTodoDetailDatas()
-		{
-			using (var context = new PgContext())
-			{
-				var dataList = context.TodoDetailDataTmpPgs.ToList();
-				var result = Clone.Convert<TodoDetailData, TodoDetailDataTmpPg>(dataList);
-				return result;
-			}
-		}
+		//TODO:全取得はないはず…
+		//// GET: api/TodoDetailDatas
+		//[HttpGet]
+		//public IEnumerable<TodoDetailData> GetTodoDetailDatas()
+		//{
+		//	{
+		//		var dataList = _context.TodoDetailDataTmpPgs.ToList();
+		//		var result = Clone.Convert<TodoDetailData, TodoDetailDataTmpPg>(dataList);
+		//		return result;
+		//	}
+		//}
 
 		[HttpGet("{UserId}")]
-		public IEnumerable<TodoDetailData> GetTodoDetailDataUsers([FromRoute]int UserId)
+		public async Task<IActionResult> GetTodoDetailDataUsers([FromRoute]int UserId)
 		{
-			using (var context = new PgContext())
 			{
-				var dataList = context.TodoDetailDataTmpPgs.Where(x => x.UserId == UserId).ToList();
+				var dataList = _context.TodoDetailDataTmpPgs.Where(x => x.UserId == UserId).ToList();
 				var result = Clone.Convert<TodoDetailData, TodoDetailDataTmpPg>(dataList);
-				return result;
+				return Ok(result);
 			}
 		}
 
 		[HttpGet("{UserId}/{DataId}")]
 		public TodoDetailData GetTodoDetailData([FromRoute]int UserId, [FromRoute] int DataId)
 		{
-			using (var context = new PgContext())
 			{
-				var data = context.TodoDetailDataTmpPgs.Where(x => x.UserId == UserId && x.DataId == DataId);
+				var data = _context.TodoDetailDataTmpPgs.Where(x => x.UserId == UserId && x.DataId == DataId);
 				var result = Clone.Convert<TodoDetailData>(data);
 				return result;
 			}
@@ -55,18 +56,21 @@ namespace EasyTodoCore2NewAsp.Controllers
 		/// <param name="requestData"></param>
 		/// <returns></returns>
 		[HttpPost]
-		public TodoDetailData TodoDetailDataAdd([FromBody] TodoDetailData requestData)
+		public async Task<IActionResult> TodoDetailDataAdd([FromBody] TodoDetailData requestData)
 		{
-			using (var context = new PgContext())
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+
 			{
 				var addData = new TodoDetailDataTmpPg();
 				Clone.Convert(requestData, addData);
-				addData.Id = context.TodoDetailDataTmpPgs.Max(x => x.Id) + 1;//最大値に1増やす
-				context.TodoDetailDataTmpPgs.Add(addData);
-				context.SaveChanges();
-				var data = context.TodoDetailDataTmpPgs.Where(x => x.UserId == requestData.UserId && x.DataId == requestData.DataId);
-				var result = Clone.Convert<TodoDetailData>(data);
-				return result;
+				addData.Id = _context.TodoDetailDataTmpPgs.Max(x => x.Id) + 1;//最大値に1増やす
+				_context.TodoDetailDataTmpPgs.Add(addData);
+				_context.SaveChangesAsync();
+
+				return Ok(requestData);
 			}
 		}
 
@@ -79,15 +83,14 @@ namespace EasyTodoCore2NewAsp.Controllers
 		[HttpPut]
 		public TodoDetailData TodoDetailDataUpdate([FromBody] TodoDetailData requestData)
 		{
-			using (var context = new PgContext())
 			{
-				var data = context.TodoDetailDataTmpPgs.Where(x => x.UserId == requestData.UserId && x.DataId == requestData.DataId);
+				var data = _context.TodoDetailDataTmpPgs.Where(x => x.UserId == requestData.UserId && x.DataId == requestData.DataId);
 				foreach (TodoDetailDataTmpPg item in data)
 				{
 					Clone.Convert(requestData, item);
 				}
-				context.Entry(data).State = EntityState.Modified;
-				context.SaveChanges();
+				_context.Entry(data).State = EntityState.Modified;
+				_context.SaveChanges();
 				var result = Clone.Convert<TodoDetailData>(data);
 				return result;
 			}
@@ -101,12 +104,11 @@ namespace EasyTodoCore2NewAsp.Controllers
 		[HttpDelete("{UserId}/{DataId}")]
 		public void TodoDetailDataDelete([FromRoute]int UserId, [FromRoute] int DataId)
 		{
-			using (var context = new PgContext())
 			{
-				var removeData = context.TodoDetailDataTmpPgs.FirstOrDefault(x => x.UserId == UserId && x.DataId == DataId);
+				var removeData = _context.TodoDetailDataTmpPgs.FirstOrDefault(x => x.UserId == UserId && x.DataId == DataId);
 				if (removeData == null) return;
-				context.TodoDetailDataTmpPgs.Remove(removeData);
-				context.SaveChanges();
+				_context.TodoDetailDataTmpPgs.Remove(removeData);
+				_context.SaveChanges();
 			}
 		}
 	}
