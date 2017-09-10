@@ -17,4 +17,8 @@
     <Folder Include="Models\Context\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EasyTodoCoreConnectionClass\EasyTodoCoreConnectionClass.csproj" />
+  </ItemGroup>
+
 </Project>
