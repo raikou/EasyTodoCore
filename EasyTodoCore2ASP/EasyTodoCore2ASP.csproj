@@ -17,23 +17,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Models\Context\DataModel.efml">
-      <Generator>DevartEFCoreGenerator</Generator>
-      <LastGenOutput>DataModel.info</LastGenOutput>
-    </None>
-    <None Update="Models\Context\DataModel.info">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DataModel.efml</DependentUpon>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Data\" />
+    <Folder Include="Models\Context\" />
     <Folder Include="Views\Shared\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\js\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EasyTodoCoreConnectionClass\EasyTodoCoreConnectionClass.csproj" />
   </ItemGroup>
 
 </Project>

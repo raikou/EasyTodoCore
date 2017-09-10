@@ -10,8 +10,6 @@ namespace EasyTodoCore2Asp.Controllers
 {
     public class HomeController : Controller
     {
-	    CoreContext.todo_dataModel context = new CoreContext.todo_dataModel();
-
 		public IActionResult Index()
         {
             return View();
