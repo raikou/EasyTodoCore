@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace EasyTodoCore2NewAsp.Controllers
 {
 	[Produces("application/json")]
-	[Route("api/TodoDetailDataTmps")]
+	[Route("api/TodoDetailDatas")]
 	public class TodoDetailDataTmpsController : Controller
 	{
 		public TodoDetailDataTmpsController()

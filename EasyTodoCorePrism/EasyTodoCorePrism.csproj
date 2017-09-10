@@ -85,11 +85,6 @@
     <Compile Include="common.cs" />
     <Compile Include="EasyTodoCorePrismModule.cs" />
     <Compile Include="Models\Clone.cs" />
-    <Compile Include="Models\Context\DataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataModel.edml</DependentUpon>
-    </Compile>
     <Compile Include="Models\ToDoList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -117,16 +112,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="Models\Context\DataModel.Diagram1.view">
-      <DependentUpon>DataModel.edml</DependentUpon>
-    </None>
-    <DevartEntityDeploy Include="Models\Context\DataModel.edml">
-      <Generator>DevartEfGenerator</Generator>
-      <LastGenOutput>DataModel.Designer.cs</LastGenOutput>
-    </DevartEntityDeploy>
-    <None Include="Models\Context\DataModel.edps">
-      <DependentUpon>DataModel.edml</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
