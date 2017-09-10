@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Controls;
 using EasyTodoCoreConnectionClass;
 using EasyTodoCorePrism.Models;
+using EasyTodoCorePrism.Views;
 using Microsoft.Practices.Unity;
 using Prism.Commands;
 using Prism.Common;
@@ -117,8 +118,7 @@ namespace EasyTodoCorePrism.ViewModels
 				NavigationParameters param = new NavigationParameters();
 				param.Add("SelectItem", SelectedItem);
 
-				this.RegionManager.RequestNavigate("MainRegion", (nameof(ToDoDetailControlViewModel)), param);
-
+				this.RegionManager.RequestNavigate("MainRegion", nameof(ToDoDetailControlView), param);
 			});
 		}
 

@@ -49,7 +49,7 @@ namespace EasyTodoCorePrism.ViewModels
 				// deactive view
 				this.RegionManager.Regions["MainRegion"].Deactivate(view);
 
-				this.RegionManager.RequestNavigate("MainRegion", nameof(ToDoListControlViewModel));
+				this.RegionManager.RequestNavigate("MainRegion", nameof(ToDoListControlView));
 			});
 
 		}
