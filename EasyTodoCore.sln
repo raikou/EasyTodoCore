@@ -13,7 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyTodoCoreApp", "EasyTodo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyTodoCore2Asp", "EasyTodoCore2Asp\EasyTodoCore2Asp.csproj", "{4A8CB4DC-A757-4A05-B34A-E33A2B328B18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyTodoCore1Asp", "EasyTodoCore1Asp\EasyTodoCore1Asp.csproj", "{BE60D27B-4EBE-49DF-AB45-2600C6815A32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyTodoCore1Asp", "EasyTodoCore1Asp\EasyTodoCore1Asp.csproj", "{BE60D27B-4EBE-49DF-AB45-2600C6815A32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyTodoCore2NewAsp", "EasyTodoCore2NewAsp\EasyTodoCore2NewAsp.csproj", "{059E05EF-E82E-481B-9D7F-C7E8B8F7EFDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{BE60D27B-4EBE-49DF-AB45-2600C6815A32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE60D27B-4EBE-49DF-AB45-2600C6815A32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE60D27B-4EBE-49DF-AB45-2600C6815A32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{059E05EF-E82E-481B-9D7F-C7E8B8F7EFDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{059E05EF-E82E-481B-9D7F-C7E8B8F7EFDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{059E05EF-E82E-481B-9D7F-C7E8B8F7EFDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{059E05EF-E82E-481B-9D7F-C7E8B8F7EFDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
