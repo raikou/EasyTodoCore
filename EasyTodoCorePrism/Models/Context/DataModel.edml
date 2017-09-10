@@ -1,0 +1,88 @@
+﻿<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TodoDataModel.Store" Alias="Self" Provider="Devart.Data.PostgreSql" ProviderManifestToken="PostgreSQL, 9.2.18" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:devart="http://devart.com/schemas/edml/StorageSchemaExtensions/1.0" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="TodoDataEntitiesStoreContainer">
+          <EntitySet Name="todo_detail_datas" EntityType="TodoDataModel.Store.todo_detail_data" store:Type="Tables" Schema="ruser" Table="todo_detail_data" />
+        </EntityContainer>
+        <EntityType Name="todo_detail_data">
+          <Key>
+            <PropertyRef Name="user_id" />
+            <PropertyRef Name="data_id" />
+          </Key>
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="data_id" Type="int" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="100" />
+          <Property Name="detail" Type="varchar" MaxLength="500" />
+          <Property Name="start_date" Type="date" />
+          <Property Name="end_date" Type="date" />
+          <Property Name="state" Type="int" />
+          <Property Name="color_id" Type="int" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TodoDataModel" Alias="Self" d4p1:ViewGeneration="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:devart="http://devart.com/schemas/edml/ConceptualSchemaExtensions/1.0" xmlns:ed="http://devart.com/schemas/EntityDeveloper/1.0" annotation:UseStrongSpatialTypes="false" xmlns:d4p1="http://devart.com/schemas/edml/ConceptualSchemaExtensions/1.0" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TodoDataEntities" annotation:LazyLoadingEnabled="true" ed:Guid="fd2ae8b9-1658-4f77-a1eb-df2e9ef2ce74">
+          <EntitySet Name="TodoDetailDatas" EntityType="TodoDataModel.TodoDetailData" />
+        </EntityContainer>
+        <EntityType Name="TodoDetailData" ed:Guid="378b9784-5d8b-44a0-a1dd-1308a3a463f2">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="DataId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" ed:ValidateRequired="true" ed:Guid="7bdea142-1b91-41e7-9c0d-9747c533bd0e" />
+          <Property Name="DataId" Type="Int32" Nullable="false" ed:ValidateRequired="true" ed:Guid="baf8f67e-331c-487e-b0c1-4f1d4bb7d9ee" />
+          <Property Name="Title" Type="String" MaxLength="100" Unicode="true" ed:ValidateMaxLength="100" ed:ValidateRequired="false" ed:Guid="a69c66ef-de86-49e8-bb68-741db8120a18" />
+          <Property Name="Detail" Type="String" MaxLength="500" Unicode="true" ed:ValidateMaxLength="500" ed:ValidateRequired="false" ed:Guid="bacd2c3d-683e-4ce8-9a47-d89639b1c37c" />
+          <Property Name="StartDate" Type="DateTime" ed:ValidateRequired="false" ed:Guid="296c6823-3bca-43d0-8bc2-6ca161a48df6" />
+          <Property Name="EndDate" Type="DateTime" ed:ValidateRequired="false" ed:Guid="7fbc6451-de1c-45cb-806d-92d1d53ca7be" />
+          <Property Name="State" Type="Int32" ed:ValidateRequired="false" ed:Guid="166f83d9-382d-4552-abc6-b15e42259ed9" />
+          <Property Name="ColorId" Type="Int32" ed:ValidateRequired="false" ed:Guid="84b5cd88-c241-4151-beb8-2ff630b81e9c" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- MSL content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TodoDataEntitiesStoreContainer" CdmEntityContainer="TodoDataEntities">
+          <EntitySetMapping Name="TodoDetailDatas">
+            <EntityTypeMapping TypeName="TodoDataModel.TodoDetailData">
+              <MappingFragment StoreEntitySet="todo_detail_datas">
+                <ScalarProperty Name="UserId" ColumnName="user_id" />
+                <ScalarProperty Name="DataId" ColumnName="data_id" />
+                <ScalarProperty Name="Title" ColumnName="title" />
+                <ScalarProperty Name="Detail" ColumnName="detail" />
+                <ScalarProperty Name="StartDate" ColumnName="start_date" />
+                <ScalarProperty Name="EndDate" ColumnName="end_date" />
+                <ScalarProperty Name="State" ColumnName="state" />
+                <ScalarProperty Name="ColorId" ColumnName="color_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <edmx:Diagrams>
+      <Diagram Name="Main" />
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -18,11 +18,17 @@ using System.Collections.Generic;
 
 namespace EasyTodoCore2Asp
 {
-    public partial class TodoDetailData {
+    public partial class TodoDetailDataTmp {
 
-        public TodoDetailData()
+        public TodoDetailDataTmp()
         {
             OnCreated();
+        }
+
+        public virtual int Id
+        {
+            get;
+            set;
         }
 
         public virtual int UserId
@@ -76,30 +82,6 @@ namespace EasyTodoCore2Asp
         #region Extensibility Method Definitions
 
         partial void OnCreated();
-
-        public override bool Equals(object obj)
-        {
-          TodoDetailData toCompare = obj as TodoDetailData;
-          if (toCompare == null)
-          {
-            return false;
-          }
-
-          if (!Object.Equals(this.UserId, toCompare.UserId))
-            return false;
-          if (!Object.Equals(this.DataId, toCompare.DataId))
-            return false;
-          
-          return true;
-        }
-
-        public override int GetHashCode()
-        {
-          int hashCode = 13;
-          hashCode = (hashCode * 7) + UserId.GetHashCode();
-          hashCode = (hashCode * 7) + DataId.GetHashCode();
-          return hashCode;
-        }
         
         #endregion
     }

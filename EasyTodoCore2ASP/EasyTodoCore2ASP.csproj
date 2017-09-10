@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Devart.Data.PostgreSql" Version="7.9.980" />
     <PackageReference Include="Devart.Data.PostgreSql.EFCore" Version="7.9.980" />
     <PackageReference Include="Devart.Data.PostgreSql.EFCore.Design" Version="7.9.980" />
-    <PackageReference Include="Devart.Data.PostgreSql.Linq" Version="4.7.1317" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +26,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>DataModel.efml</DependentUpon>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Views\Shared\" />
+    <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
 </Project>

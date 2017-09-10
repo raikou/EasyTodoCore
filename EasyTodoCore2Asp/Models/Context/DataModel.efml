@@ -28,4 +28,33 @@
       <column name="color_id" not-null="False" sql-type="int4" p1:unicode="False" />
     </property>
   </class>
+  <class name="TodoDetailDataTmp" entity-set="TodoDetailDataTmps" table="todo_detail_data_tmp" schema="ruser" p1:Guid="1ed4d66a-9ce1-4947-a379-33e569150521">
+    <id name="Id" type="Int32" p1:ValidateRequired="true" p1:Guid="8c9a658e-6cb0-41cc-8ba2-b21c70909599">
+      <column name="id" not-null="True" sql-type="int4" p1:unicode="False" />
+    </id>
+    <property name="UserId" type="Int32" p1:ValidateRequired="true" p1:Guid="2144cfe3-fd7d-475d-8c3e-a0baa15b6a07">
+      <column name="user_id" not-null="True" sql-type="int4" unique-key="KEY1" p1:unicode="False" />
+    </property>
+    <property name="DataId" type="Int32" p1:ValidateRequired="true" p1:Guid="c85b0e1d-3dcb-4751-8b90-867e311dcf88">
+      <column name="data_id" not-null="True" sql-type="int4" unique-key="KEY1" p1:unicode="False" />
+    </property>
+    <property name="Title" type="String" p1:nullable="True" p1:ValidateMaxLength="100" p1:ValidateRequired="false" p1:Guid="bfd3c9c0-a4ca-4cf5-a1d1-5926286b22db">
+      <column name="title" not-null="False" length="100" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Detail" type="String" p1:nullable="True" p1:ValidateMaxLength="500" p1:ValidateRequired="false" p1:Guid="852e8f30-ae1b-419b-8ee7-0da350394cfe">
+      <column name="detail" not-null="False" length="500" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="StartDate" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="891dcf65-744d-4a6b-83b4-7d9c7d16b518">
+      <column name="start_date" not-null="False" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="EndDate" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="b6ff0da9-ba5c-4498-9833-da4993a632ef">
+      <column name="end_date" not-null="False" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="State" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="8d72700b-01c3-4074-8bde-d25b635761f0">
+      <column name="`state`" not-null="False" sql-type="int4" p1:unicode="False" />
+    </property>
+    <property name="ColorId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="01b701df-fa2a-4184-9014-ad4331dce89d">
+      <column name="color_id" not-null="False" sql-type="int4" p1:unicode="False" />
+    </property>
+  </class>
 </efcore>
