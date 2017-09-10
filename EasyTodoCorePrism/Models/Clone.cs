@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace EasyTodoCore2Asp.Models
+namespace EasyTodoCorePrism.Models
 {
 	public static class Clone
 	{

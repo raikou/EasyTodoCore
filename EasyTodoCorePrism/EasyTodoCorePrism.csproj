@@ -84,6 +84,7 @@
   <ItemGroup>
     <Compile Include="common.cs" />
     <Compile Include="EasyTodoCorePrismModule.cs" />
+    <Compile Include="Models\Clone.cs" />
     <Compile Include="Models\Context\DataModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

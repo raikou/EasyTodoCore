@@ -6,6 +6,7 @@
       <Schema Namespace="TodoDataModel.Store" Alias="Self" Provider="Devart.Data.PostgreSql" ProviderManifestToken="PostgreSQL, 9.2.18" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:devart="http://devart.com/schemas/edml/StorageSchemaExtensions/1.0" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="TodoDataEntitiesStoreContainer">
           <EntitySet Name="todo_detail_datas" EntityType="TodoDataModel.Store.todo_detail_data" store:Type="Tables" Schema="ruser" Table="todo_detail_data" />
+          <EntitySet Name="todo_detail_data_tmps" EntityType="TodoDataModel.Store.todo_detail_data_tmp" store:Type="Tables" Schema="ruser" Table="todo_detail_data_tmp" />
         </EntityContainer>
         <EntityType Name="todo_detail_data">
           <Key>
@@ -21,27 +22,56 @@
           <Property Name="state" Type="int" />
           <Property Name="color_id" Type="int" />
         </EntityType>
+        <EntityType Name="todo_detail_data_tmp">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="data_id" Type="int" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="100" />
+          <Property Name="detail" Type="varchar" MaxLength="500" />
+          <Property Name="start_date" Type="date" />
+          <Property Name="end_date" Type="date" />
+          <Property Name="state" Type="int" />
+          <Property Name="color_id" Type="int" />
+        </EntityType>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TodoDataModel" Alias="Self" d4p1:ViewGeneration="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:devart="http://devart.com/schemas/edml/ConceptualSchemaExtensions/1.0" xmlns:ed="http://devart.com/schemas/EntityDeveloper/1.0" annotation:UseStrongSpatialTypes="false" xmlns:d4p1="http://devart.com/schemas/edml/ConceptualSchemaExtensions/1.0" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="TodoDataEntities" annotation:LazyLoadingEnabled="true" ed:Guid="fd2ae8b9-1658-4f77-a1eb-df2e9ef2ce74">
+        <EntityContainer Name="TodoDataEntities" annotation:LazyLoadingEnabled="true" ed:Guid="daffb0d7-d2ad-4252-8422-61d7c156aab0">
           <EntitySet Name="TodoDetailDatas" EntityType="TodoDataModel.TodoDetailData" />
+          <EntitySet Name="TodoDetailDataTmps" EntityType="TodoDataModel.TodoDetailDataTmp" />
         </EntityContainer>
-        <EntityType Name="TodoDetailData" ed:Guid="378b9784-5d8b-44a0-a1dd-1308a3a463f2">
+        <EntityType Name="TodoDetailData" ed:Guid="30b77fb2-8ecd-4757-af92-a425ebf7a85a">
           <Key>
             <PropertyRef Name="UserId" />
             <PropertyRef Name="DataId" />
           </Key>
-          <Property Name="UserId" Type="Int32" Nullable="false" ed:ValidateRequired="true" ed:Guid="7bdea142-1b91-41e7-9c0d-9747c533bd0e" />
-          <Property Name="DataId" Type="Int32" Nullable="false" ed:ValidateRequired="true" ed:Guid="baf8f67e-331c-487e-b0c1-4f1d4bb7d9ee" />
-          <Property Name="Title" Type="String" MaxLength="100" Unicode="true" ed:ValidateMaxLength="100" ed:ValidateRequired="false" ed:Guid="a69c66ef-de86-49e8-bb68-741db8120a18" />
-          <Property Name="Detail" Type="String" MaxLength="500" Unicode="true" ed:ValidateMaxLength="500" ed:ValidateRequired="false" ed:Guid="bacd2c3d-683e-4ce8-9a47-d89639b1c37c" />
-          <Property Name="StartDate" Type="DateTime" ed:ValidateRequired="false" ed:Guid="296c6823-3bca-43d0-8bc2-6ca161a48df6" />
-          <Property Name="EndDate" Type="DateTime" ed:ValidateRequired="false" ed:Guid="7fbc6451-de1c-45cb-806d-92d1d53ca7be" />
-          <Property Name="State" Type="Int32" ed:ValidateRequired="false" ed:Guid="166f83d9-382d-4552-abc6-b15e42259ed9" />
-          <Property Name="ColorId" Type="Int32" ed:ValidateRequired="false" ed:Guid="84b5cd88-c241-4151-beb8-2ff630b81e9c" />
+          <Property Name="UserId" Type="Int32" Nullable="false" ed:ValidateRequired="true" ed:Guid="0cc45946-9db1-4861-bc9b-94899a68b058" />
+          <Property Name="DataId" Type="Int32" Nullable="false" ed:ValidateRequired="true" ed:Guid="3778eeeb-6457-4f51-84d4-e5de8572602c" />
+          <Property Name="Title" Type="String" MaxLength="100" Unicode="true" ed:ValidateMaxLength="100" ed:ValidateRequired="false" ed:Guid="cb484d54-d605-4921-a882-86e4dda78f2e" />
+          <Property Name="Detail" Type="String" MaxLength="500" Unicode="true" ed:ValidateMaxLength="500" ed:ValidateRequired="false" ed:Guid="4acfa35b-9933-479a-bae6-88b1973474ee" />
+          <Property Name="StartDate" Type="DateTime" ed:ValidateRequired="false" ed:Guid="cd0c2967-c79d-4ae3-a013-579eb5e68327" />
+          <Property Name="EndDate" Type="DateTime" ed:ValidateRequired="false" ed:Guid="e1c798d1-0314-4072-b00f-c94afc253bde" />
+          <Property Name="State" Type="Int32" ed:ValidateRequired="false" ed:Guid="a538bd82-a9cd-4807-ab26-9d8b9b48df97" />
+          <Property Name="ColorId" Type="Int32" ed:ValidateRequired="false" ed:Guid="92e2ce66-ea63-4f55-b73e-568ee59d02a4" />
+        </EntityType>
+        <EntityType Name="TodoDetailDataTmp" ed:Guid="e21ed0fd-dc7b-4cd8-acc0-a58b9627c03d">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" ed:ValidateRequired="true" ed:Guid="73cc8e09-a32d-43ed-a191-a5a2bffc5e20" />
+          <Property Name="UserId" Type="Int32" Nullable="false" ed:ValidateRequired="true" ed:Guid="ffc17de5-a206-4833-aebc-c26b15b69728" />
+          <Property Name="DataId" Type="Int32" Nullable="false" ed:ValidateRequired="true" ed:Guid="13c330b8-07d5-4e75-8ef3-bd576c135fec" />
+          <Property Name="Title" Type="String" MaxLength="100" Unicode="true" ed:ValidateMaxLength="100" ed:ValidateRequired="false" ed:Guid="0888ba08-8e2d-46e8-b0ae-010578193111" />
+          <Property Name="Detail" Type="String" MaxLength="500" Unicode="true" ed:ValidateMaxLength="500" ed:ValidateRequired="false" ed:Guid="b4564ef0-0cdf-48b4-b6fd-b836f9141d31" />
+          <Property Name="StartDate" Type="DateTime" ed:ValidateRequired="false" ed:Guid="346c2c33-9ce3-4e40-9eed-b51949a2f730" />
+          <Property Name="EndDate" Type="DateTime" ed:ValidateRequired="false" ed:Guid="936d678b-53cf-4426-834f-8c4b077f182d" />
+          <Property Name="State" Type="Int32" ed:ValidateRequired="false" ed:Guid="199287ca-bb55-4063-811c-3fea5ac0511b" />
+          <Property Name="ColorId" Type="Int32" ed:ValidateRequired="false" ed:Guid="f4feb162-6aad-443d-b93f-07c9d3cc0c7e" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -52,6 +82,21 @@
           <EntitySetMapping Name="TodoDetailDatas">
             <EntityTypeMapping TypeName="TodoDataModel.TodoDetailData">
               <MappingFragment StoreEntitySet="todo_detail_datas">
+                <ScalarProperty Name="UserId" ColumnName="user_id" />
+                <ScalarProperty Name="DataId" ColumnName="data_id" />
+                <ScalarProperty Name="Title" ColumnName="title" />
+                <ScalarProperty Name="Detail" ColumnName="detail" />
+                <ScalarProperty Name="StartDate" ColumnName="start_date" />
+                <ScalarProperty Name="EndDate" ColumnName="end_date" />
+                <ScalarProperty Name="State" ColumnName="state" />
+                <ScalarProperty Name="ColorId" ColumnName="color_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TodoDetailDataTmps">
+            <EntityTypeMapping TypeName="TodoDataModel.TodoDetailDataTmp">
+              <MappingFragment StoreEntitySet="todo_detail_data_tmps">
+                <ScalarProperty Name="Id" ColumnName="id" />
                 <ScalarProperty Name="UserId" ColumnName="user_id" />
                 <ScalarProperty Name="DataId" ColumnName="data_id" />
                 <ScalarProperty Name="Title" ColumnName="title" />

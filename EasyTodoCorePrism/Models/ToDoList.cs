@@ -14,16 +14,21 @@ namespace EasyTodoCorePrism.Models
 
 		public async Task<List<TodoDetailData>> GetUserList()
 		{
-			var hc = new HttpClient();
-			hc.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-			var res = await hc.GetAsync(common.GetURL() + "TodoDetailDatas").ConfigureAwait(false);
-			var str = await res.Content.ReadAsStringAsync();
-			//testMess.Text = str;
+			//var hc = new HttpClient();
+			//hc.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+			//var res = await hc.GetAsync(common.GetURL() + "TodoDetailDatas").ConfigureAwait(false);
+			//var str = await res.Content.ReadAsStringAsync();
+			////testMess.Text = str;
 
-			var js = new Newtonsoft.Json.JsonSerializer();
-			var jr = new Newtonsoft.Json.JsonTextReader(new System.IO.StringReader(str));
-			var items = js.Deserialize<List<TodoDetailData>>(jr);
-			return items.ToList();
+			//var js = new Newtonsoft.Json.JsonSerializer();
+			//var jr = new Newtonsoft.Json.JsonTextReader(new System.IO.StringReader(str));
+			//var items = js.Deserialize<List<TodoDetailData>>(jr);
+			//return items.ToList();
+
+			var context = new TodoDataModel.TodoDataEntities();
+			var list = context.TodoDetailDatas.ToList();
+			var result = new List<TodoDetailData>();
+			return Clone.Convert<TodoDetailData, TodoDataModel.TodoDetailData>(list);
 		}
 
 		public async Task<TodoDetailData> GetById(int id)
