@@ -15,6 +15,7 @@ namespace EasyTodoCore1Asp
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
+	            .UseUrls("http://*:5050/")
                 .UseStartup<Startup>()
                 .UseApplicationInsights()
                 .Build();
