@@ -31,7 +31,18 @@ namespace EasyTodoCore2NewAsp.Models
 		/// <returns></returns>
 		public static T Convert<T>(object from) where T : new()
 		{
-			var result = new T();
+			return Convert<T>(from, new T());
+		}
+
+		/// <summary>
+		/// from から 指定した型のデータ に同名のフィールドの値をコピーする
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="from"></param>
+		/// <returns></returns>
+		public static T Convert<T>(object from, T to) where T : new()
+		{
+			var result = to;
 			Type toType = result.GetType();
 			Type fromType = from.GetType();
 			var toInfoList = toType.GetProperties();
@@ -43,5 +54,6 @@ namespace EasyTodoCore2NewAsp.Models
 
 			return result;
 		}
+
 	}
 }
