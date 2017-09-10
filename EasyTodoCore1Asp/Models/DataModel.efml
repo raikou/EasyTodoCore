@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<efcore context-namespace="CoreContext" namespace="EasyTodoCore1Asp" p1:Guid="4159c58c-eb7d-4249-8baf-1c28b3acdca2" xmlns:p1="http://devart.com/schemas/EntityDeveloper/1.0">
+  <class name="TodoDetailData" entity-set="TodoDetailDatas" table="todo_detail_data" schema="ruser" p1:Guid="a1fd17b3-daa9-4017-8474-3999fa760980">
+    <composite-id>
+      <key-property name="UserId" type="Int32" p1:ValidateRequired="true" p1:Guid="dc1e4463-a276-4653-813f-71b571a82007">
+        <column name="user_id" not-null="True" sql-type="int4" p1:unicode="False" />
+      </key-property>
+      <key-property name="DataId" type="Int32" p1:ValidateRequired="true" p1:Guid="1c8db3c3-e65e-4aa5-bad0-bfd085d3fddb">
+        <column name="data_id" not-null="True" sql-type="int4" p1:unicode="False" />
+      </key-property>
+    </composite-id>
+    <property name="Title" type="String" p1:nullable="True" p1:ValidateMaxLength="100" p1:ValidateRequired="false" p1:Guid="501c6bf7-c471-4f4a-9b62-efbf528af1bf">
+      <column name="title" not-null="False" length="100" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Detail" type="String" p1:nullable="True" p1:ValidateMaxLength="500" p1:ValidateRequired="false" p1:Guid="75484307-12d1-47d4-ac82-b3029dd775ac">
+      <column name="detail" not-null="False" length="500" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="StartDate" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="b9561c0c-b52c-43e7-87bb-f84dce294352">
+      <column name="start_date" not-null="False" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="EndDate" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="3b1ed990-e4af-46d5-8ba1-98f683e78249">
+      <column name="end_date" not-null="False" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="State" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="527b3434-97db-45d1-a1d8-7f25a80b16a2">
+      <column name="`state`" not-null="False" sql-type="int4" p1:unicode="False" />
+    </property>
+    <property name="ColorId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="c5a344b5-446d-4975-bdb9-a307ffaa7ad1">
+      <column name="color_id" not-null="False" sql-type="int4" p1:unicode="False" />
+    </property>
+  </class>
+</efcore>
