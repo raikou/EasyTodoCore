@@ -49,7 +49,11 @@ namespace EasyTodoCore2NewAsp.Models
 
 			foreach (PropertyInfo info in toInfoList)
 			{
-				info.SetValue(result, fromType.GetProperty(info.Name).GetValue(from));
+				var pro = fromType.GetProperty(info.Name);
+				if (pro != null)
+				{
+					info.SetValue(result, pro.GetValue(from));
+				}
 			}
 
 			return result;
