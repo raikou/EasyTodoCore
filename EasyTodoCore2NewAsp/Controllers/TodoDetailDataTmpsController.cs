@@ -34,8 +34,9 @@ namespace EasyTodoCore2NewAsp.Controllers
 		public async Task<IActionResult> GetTodoDetailDataUsers([FromRoute]int UserId)
 		{
 			{
-				var dataList = _context.TodoDetailDataTmpPgs.Where(x => x.UserId == UserId).ToList();
-				var result = Clone.Convert<TodoDetailData, TodoDetailDataTmpPg>(dataList);
+				List<TodoDetailData> result;
+				var dataList =  _context.TodoDetailDataTmpPgs.Where(x => x.UserId == UserId).ToList();
+				 result = Clone.Convert<TodoDetailData, TodoDetailDataTmpPg > (dataList);
 				return Ok(result);
 			}
 		}
