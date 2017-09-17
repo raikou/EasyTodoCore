@@ -12,7 +12,7 @@ namespace EasyTodoCorePrism.Models
 	{
 		#region API処理
 
-		public async Task<List<TodoDetailData>> GetUserList()
+		public async Task<List<TodoDetailData>> Login()
 		{
 			var hc = new HttpClient();
 			hc.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -47,8 +47,6 @@ namespace EasyTodoCorePrism.Models
 		/// <param name="e"></param>
 		public async void PutById(TodoDetailData data)
 		{
-			data.Title = "更新データ";
-			data.Detail = "適当";
 			var js = new Newtonsoft.Json.JsonSerializer();
 			var sw = new System.IO.StringWriter();
 			js.Serialize(sw, data);
@@ -56,7 +54,7 @@ namespace EasyTodoCorePrism.Models
 			hc.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 			var json = sw.ToString();
 			var cont = new StringContent(json, Encoding.UTF8, "application/json");
-			var res = await hc.PutAsync(common.GetURL() + "TodoDetailDatas/" + data.UserId + "/" + data.DataId, cont).ConfigureAwait(false); ;
+			var res = await hc.PutAsync(common.GetURL() + "TodoDetailDatas/", cont).ConfigureAwait(false); ;
 			var str = await res.Content.ReadAsStringAsync();
 			//testMess.Text = str;
 

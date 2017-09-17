@@ -9,15 +9,67 @@
 			 prism:ViewModelLocator.AutoWireViewModel="True"
 			 mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-			 <UserControl.DataContext>
-				<viewModels:ToDoDetailControlViewModel/>
-			 </UserControl.DataContext>
+	<UserControl.DataContext>
+		<viewModels:ToDoDetailControlViewModel/>
+	</UserControl.DataContext>
 	<Grid>
-		<StackPanel>
-			<TextBlock Text="テスト"></TextBlock>
-			<StackPanel Orientation="Horizontal"  DockPanel.Dock="Bottom" Width="300">
-				<Button Content="戻る" Command="{Binding BackCommand}" />
+		<StackPanel Background="White">
+			<!-- スタイル設定 -->
+			<StackPanel.Resources>
+				<Style x:Key="TextLabel" TargetType="TextBlock">
+					<!--<Setter Property="HorizontalAlignment" Value="Right"/>-->
+					<Setter Property="TextAlignment" Value="Right"></Setter>
+					<Setter Property="Width" Value="70px" />
+					<Setter Property="Margin" Value="1px"/>
+				</Style>
+				<Style x:Key="TextImput" TargetType="TextBox">
+					<Setter Property ="BorderBrush" Value="Black" />
+					<Setter Property="Background" Value="Azure"></Setter>
+					<Setter Property="Width" Value="200px" />
+					<Setter Property="Margin" Value="1px"></Setter>
+				</Style>
+				<Style x:Key="Command" TargetType="Button">
+					<Setter Property="Padding" Value="10,0"></Setter>
+				</Style>
+			</StackPanel.Resources>
+			<!-- #region 画面表示内容 -->
+			<Grid Background="Plum">
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+					<TextBlock Text="ユーザID："  Width="auto" TextAlignment="Right"/>
+					<TextBlock Text="{Binding SelectedDetailItem.UserId}"  />
+				</StackPanel>
+			</Grid>
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="タイトル："  Style="{StaticResource TextLabel}" />
+				<TextBox Text="{Binding SelectedDetailItem.Title}" Style="{StaticResource TextImput}" />
 			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="詳細："  Style="{StaticResource TextLabel}" />
+				<TextBox Text="{Binding SelectedDetailItem.Detail}" Style="{StaticResource TextImput}" />
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="開始日："  Style="{StaticResource TextLabel}" />
+				<TextBox Text="{Binding SelectedDetailItem.StartDate}" Style="{StaticResource TextImput}" />
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="終了日："  Style="{StaticResource TextLabel}" />
+				<TextBox Text="{Binding SelectedDetailItem.EndDate}" Style="{StaticResource TextImput}" />
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="状態："  Style="{StaticResource TextLabel}" />
+				<TextBox Text="{Binding SelectedDetailItem.State}" Style="{StaticResource TextImput}" />
+			</StackPanel>
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="色設定："  Style="{StaticResource TextLabel}" />
+				<TextBox Text="{Binding SelectedDetailItem.ColorId}" Style="{StaticResource TextImput}" />
+			</StackPanel>
+			<!-- #endregion 画面表示内容 -->
+			<Grid>
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+					<Button Content="保存" Command="{Binding SaveCommand}" HorizontalAlignment="Right" Style="{StaticResource Command}"/>
+					<Button Content="戻る" Command="{Binding BackCommand}" HorizontalAlignment="Right" Style="{StaticResource Command}"/>
+				</StackPanel>
+			</Grid>
 		</StackPanel>
-    </Grid>
+	</Grid>
 </UserControl>

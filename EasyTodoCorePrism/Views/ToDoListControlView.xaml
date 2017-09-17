@@ -14,11 +14,10 @@
 			</UserControl.DataContext>
 	<Grid>
 		<StackPanel>
-			<DataGrid ItemsSource="{Binding GridItem ,Mode=TwoWay}" Height="200" IsReadOnly="True" SelectedItem="{Binding SelectItem}" SelectionMode="Single"/>
+			<DataGrid ItemsSource="{Binding GridItem ,Mode=TwoWay}" Height="200" IsReadOnly="True" SelectedItem="{Binding SelectedItem}" SelectionMode="Single"/>
 			<StackPanel Orientation="Horizontal"  DockPanel.Dock="Bottom" Width="300">
 				<Button Content="取得" Command="{Binding GetMainListCommand}" Width="50" Height="30" />
 				<Button Content="追加" Command="{Binding AddCommand}" Width="50" Height="30" />
-				<Button Content="更新" Command="{Binding UpdCommand}" Width="50" Height="30"/>
 				<Button Content="削除" Command="{Binding DelCommand}" Width="50" Height="30"/>
 				<Button Content="詳細" Command="{Binding DetailCommand}" Width="50" Height="30" />
 			</StackPanel>

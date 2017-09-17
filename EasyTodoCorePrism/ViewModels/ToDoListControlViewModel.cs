@@ -85,20 +85,26 @@ namespace EasyTodoCorePrism.ViewModels
 			//コマンド生成
 			this.GetMainListCommand = new DelegateCommand(() =>
 			{
-				GridItem = toDoList.GetById(0).Result;
+				GetUserDataList();
 
 			});
 			this.AddCommand = new DelegateCommand(() =>
 			{
+				var baseData = GridItem.FirstOrDefault();
+				int userId = baseData?.UserId ?? 0;
+				int dataId = baseData?.DataId + 1 ?? 0;
+
 				var data = new TodoDetailData()
 				{
-					UserId = 0
-					, DataId = 0
+					UserId = userId
+					, DataId = dataId
 				};
 				
 				 var result = toDoList.Post(data, GridItem).Result;
 
-				GridItem = toDoList.GetById(data.UserId).Result;
+				ToDetail(result);
+
+
 			});
 			this.UpdCommand = new DelegateCommand(() =>
 			{
@@ -110,24 +116,18 @@ namespace EasyTodoCorePrism.ViewModels
 			});
 			this.DetailCommand = new DelegateCommand(() =>
 			{
-				this.KeepAlive = false;
-				//TODO:情報残るようなら以下のコメントを消す
-				// find view by region
-				var view = RegionManager.Regions["MainRegion"]
-					.ActiveViews
-					.First(x => MvvmHelpers.GetImplementerFromViewOrViewModel<ToDoListControlViewModel>(x) == this);
-				// deactive view
-				this.RegionManager.Regions["MainRegion"].Deactivate(view);
-				NavigationParameters param = new NavigationParameters();
-				param.Add("SelectItem", SelectedItem);
-
-				this.RegionManager.RequestNavigate("MainRegion", nameof(ToDoDetailControlView), param);
+				ToDetail(SelectedItem);
 			});
 		}
 
 		#endregion
 
 		#region INavigationAware
+
+		public void OnNavigatedFrom(NavigationContext navigationContext)
+		{
+			Debug.WriteLine("NavigatedFrom");
+		}
 
 		public bool IsNavigationTarget(NavigationContext navigationContext)
 		{
@@ -137,13 +137,36 @@ namespace EasyTodoCorePrism.ViewModels
 		public void OnNavigatedTo(NavigationContext navigationContext)
 		{
 			Debug.WriteLine("NavigatedTo");
+
+			GetUserDataList();
+
 			this.navigationService = navigationContext.NavigationService;//公式参照するとこっちが書いてあるのでこっちでは？http://vdlz.xyz/Csharp/ToolKit/MVVM/Prism/Doc/DG50/DG50_005.html
 		}
 
-		public void OnNavigatedFrom(NavigationContext navigationContext)
+		#region 処理関数
+
+		private void GetUserDataList()
 		{
-			Debug.WriteLine("NavigatedFrom");
+			GridItem = toDoList.GetById(0).Result;
 		}
+
+		private void ToDetail(TodoDetailData detailInfo)
+		{
+			this.KeepAlive = false;
+			//TODO:情報残るようなら以下のコメントを消す
+			// find view by region
+			var view = RegionManager.Regions["MainRegion"]
+				.ActiveViews
+				.First(x => MvvmHelpers.GetImplementerFromViewOrViewModel<ToDoListControlViewModel>(x) == this);
+			// deactive view
+			this.RegionManager.Regions["MainRegion"].Deactivate(view);
+			NavigationParameters param = new NavigationParameters();
+			param.Add("SelectedDetailItem", detailInfo);
+
+			this.RegionManager.RequestNavigate("MainRegion", nameof(ToDoDetailControlView), param);
+		}
+
+		#endregion
 
 		#endregion
 	}

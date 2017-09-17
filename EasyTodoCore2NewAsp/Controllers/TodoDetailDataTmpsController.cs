@@ -89,8 +89,8 @@ namespace EasyTodoCore2NewAsp.Controllers
 				foreach (TodoDetailDataTmpPg item in data)
 				{
 					Clone.Convert(requestData, item);
+					_context.Entry(item).State = EntityState.Modified;
 				}
-				_context.Entry(data).State = EntityState.Modified;
 				_context.SaveChanges();
 				var result = Clone.Convert<TodoDetailData>(data);
 				return result;
