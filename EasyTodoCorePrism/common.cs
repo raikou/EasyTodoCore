@@ -9,8 +9,9 @@ namespace EasyTodoCorePrism
 	{
 		public static string GetURL()
 		{
-			  string urlMain = "http://192.168.24.80:5050/api/";
-			  string urlLocal = "http://localhost:5050/api/";
+			string urlMain = "http://192.168.24.80:5050/api/";
+			string urlMainFull = "http://192.168.24.74:5050/api/";
+			string urlLocal = "http://localhost:5050/api/";
 
 			return urlLocal;
 		}

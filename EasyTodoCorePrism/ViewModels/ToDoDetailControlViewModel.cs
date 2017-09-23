@@ -49,7 +49,7 @@ namespace EasyTodoCorePrism.ViewModels
 		{
 			SaveCommand = new DelegateCommand(() =>
 			{
-				toDoList.PutById(SelectedDetailItem);
+				var result = toDoList.PutById(SelectedDetailItem).Result;
 				Back();
 			});
 			BackCommand = new DelegateCommand(() =>

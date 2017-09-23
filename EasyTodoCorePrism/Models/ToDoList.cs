@@ -45,7 +45,7 @@ namespace EasyTodoCorePrism.Models
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		public async void PutById(TodoDetailData data)
+		public async Task<string> PutById(TodoDetailData data)
 		{
 			var js = new Newtonsoft.Json.JsonSerializer();
 			var sw = new System.IO.StringWriter();
@@ -56,7 +56,8 @@ namespace EasyTodoCorePrism.Models
 			var cont = new StringContent(json, Encoding.UTF8, "application/json");
 			var res = await hc.PutAsync(common.GetURL() + "TodoDetailDatas/", cont).ConfigureAwait(false); ;
 			var str = await res.Content.ReadAsStringAsync();
-			//testMess.Text = str;
+
+			return str;
 
 		}
 
