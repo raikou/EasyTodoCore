@@ -13,7 +13,7 @@ namespace EasyTodoCorePrism
 			string urlMainFull = "http://192.168.24.74:5050/api/";
 			string urlLocal = "http://localhost:5050/api/";
 
-			return urlMain;
+			return urlLocal;
 		}
 
 		public static HttpWebRequest connectionGet(string url)

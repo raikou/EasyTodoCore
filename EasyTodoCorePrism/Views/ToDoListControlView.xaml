@@ -14,6 +14,9 @@
 			</UserControl.DataContext>
 	<Grid>
 		<StackPanel>
+			<StackPanel>
+				<Button Content="サインイン/サインアップ" Command="{Binding Login}" Width="50" Height="30" />
+			</StackPanel>
 			<DataGrid ItemsSource="{Binding GridItem ,Mode=TwoWay}" Height="200" IsReadOnly="True" SelectedItem="{Binding SelectedItem}" SelectionMode="Single"/>
 			<StackPanel Orientation="Horizontal"  DockPanel.Dock="Bottom" Width="300">
 				<Button Content="取得" Command="{Binding GetMainListCommand}" Width="50" Height="30" />

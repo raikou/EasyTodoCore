@@ -40,6 +40,7 @@ namespace EasyTodoCorePrism.ViewModels
 		public InteractionRequest<Notification> NotificationRequest { get; } = new InteractionRequest<Notification>();
 		#endregion
 		#region コマンドリスト
+		public DelegateCommand Login { get; }
 		public DelegateCommand GetMainListCommand { get; }
 		public DelegateCommand AddCommand { get; }
 		public DelegateCommand UpdCommand { get; }
@@ -83,6 +84,11 @@ namespace EasyTodoCorePrism.ViewModels
 			GridItem = list;
 
 			//コマンド生成
+			this.Login = new DelegateCommand(() =>
+			{
+				GoToLogin();
+
+			});
 			this.GetMainListCommand = new DelegateCommand(() =>
 			{
 				GetUserDataList();
@@ -144,6 +150,20 @@ namespace EasyTodoCorePrism.ViewModels
 		}
 
 		#region 処理関数
+
+		private void GoToLogin()
+		{
+			this.KeepAlive = false;
+			//TODO:情報残るようなら以下のコメントを消す
+			// find view by region
+			var view = RegionManager.Regions["MainRegion"]
+				.ActiveViews
+				.First(x => MvvmHelpers.GetImplementerFromViewOrViewModel<ToDoListControlViewModel>(x) == this);
+			// deactive view
+			this.RegionManager.Regions["MainRegion"].Deactivate(view);
+
+			this.RegionManager.RequestNavigate("MainRegion", nameof(FirebaseControlView));
+		}
 
 		private void GetUserDataList()
 		{
