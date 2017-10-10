@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using CommonFirebase.Common;
 using CommonFirebase.Models;
 using Prism.Commands;
@@ -63,10 +64,12 @@ namespace EasyTodoCorePrism.ViewModels
 		/// </summary>
 		public string AuthMessage
 		{
-			get
-			{
-				return this._firebaseModel.AuthMessage;
-			}
+			//get
+			//{
+			//	return this._firebaseModel.AuthMessage;
+			//}
+			get;
+			set;
 		}
 
 		#endregion
@@ -81,6 +84,7 @@ namespace EasyTodoCorePrism.ViewModels
 				return this._signInCommand = this._signInCommand ?? new RelayCommand(async () =>
 				{
 					await this._firebaseModel.SignInAsync();
+					MessageBox.Show(_firebaseModel.AuthMessage);
 				});
 			}
 		}
@@ -95,6 +99,7 @@ namespace EasyTodoCorePrism.ViewModels
 				return this._signUpCommand = this._signUpCommand ?? new RelayCommand(async () =>
 				{
 					await this._firebaseModel.SignUpAsync();
+					MessageBox.Show(_firebaseModel.AuthMessage);
 				});
 			}
 		}

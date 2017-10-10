@@ -258,8 +258,9 @@ namespace CommonFirebase.Models
 		{
 			try
 			{
+				var token = new FirebaseToken();
 				// 認証するためのオブジェクトを作成
-				var auth = new FirebaseAuthProvider(new FirebaseConfig(FirebaseToken.ApiKey));
+				var auth = new FirebaseAuthProvider(new FirebaseConfig(token.ApiKey));
 
 				// 認証を行い、リンクを取得する
 				this._authLink = await auth.SignInWithEmailAndPasswordAsync(this.Email, this.Password);
@@ -283,8 +284,9 @@ namespace CommonFirebase.Models
 		{
 			try
 			{
+				var token = new FirebaseToken();
 				// 認証するためのオブジェクトを作成
-				var auth = new FirebaseAuthProvider(new FirebaseConfig(FirebaseToken.ApiKey));
+				var auth = new FirebaseAuthProvider(new FirebaseConfig(token.ApiKey));
 
 				// サインアップを行い、リンクを取得する
 				this._authLink = await auth.CreateUserWithEmailAndPasswordAsync(this.Email, this.Password);
