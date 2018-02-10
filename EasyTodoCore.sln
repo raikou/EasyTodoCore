@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+# Blend for Visual Studio 15
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyTodoCoreConnectionClass", "EasyTodoCoreConnectionClass\EasyTodoCoreConnectionClass.csproj", "{DF956F94-7ED2-4AF6-B5E2-4383BE521345}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyTodoCoreConnectionClass", "EasyTodoCoreConnectionClass\EasyTodoCoreConnectionClass.csproj", "{DF956F94-7ED2-4AF6-B5E2-4383BE521345}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyTodoCorePrism", "EasyTodoCorePrism\EasyTodoCorePrism.csproj", "{AB8B448C-DD74-4D60-A041-3E5D03A32180}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyTodoCoreApp", "EasyTodoCoreApp\EasyTodoCoreApp.csproj", "{99C9E82C-C594-446D-AA59-8FFBC43AD226}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyTodoCore2NewAsp", "EasyTodoCore2NewAsp\EasyTodoCore2NewAsp.csproj", "{059E05EF-E82E-481B-9D7F-C7E8B8F7EFDF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyTodoCore2NewAsp", "EasyTodoCore2NewAsp\EasyTodoCore2NewAsp.csproj", "{059E05EF-E82E-481B-9D7F-C7E8B8F7EFDF}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CommonFirebase", "CommonFirebase\CommonFirebase.shproj", "{39EEB195-DE99-4202-B4B2-E3CD0E48990F}"
 EndProject
